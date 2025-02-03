@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emran Hossen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: shakeEffect 3s infinite;
+        }
+
+        @keyframes shakeEffect {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-3px, 3px); }
+            50% { transform: translate(3px, -3px); }
+            75% { transform: translate(-3px, 3px); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px);
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: zoomEffect 5s infinite;
+        }
+
+        @keyframes zoomEffect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .profile .image-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px auto;
+            position: relative;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 20px pink;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px pink; }
+            100% { box-shadow: 0 0 30px pink; }
+        }
+
+        .profile .name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff79c6;
+            text-shadow: 0 0 10px rgba(255, 121, 198, 0.8), 0 0 20px rgba(255, 121, 198, 0.6);
+            animation: textShake 3s infinite;
+        }
+
+        @keyframes textShake {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .profile .description {
+            font-size: 1em;
+            color: #dddddd;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: 0.3s;
+            color: #ffffff;
+        }
+
+        .link img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .link.instagram { background: #d62976; }
+        .link.facebook { background: #1877f2; }
+        .link.youtube { background: #ff0000; }
+        .link.discord { background: #7289da; }
+        .link.twitter { background: #1da1f2; }
+
+        .link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+        }
+        .audio-controls {
+            margin-top: 20px;
+        }
+        #audio-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1em;
+            color: #ffffff;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        #audio-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/cf/66/4e/cf664eb6a71fd9bef62028ecdc614f73.jpg" alt="Emran Hossen">
+            </div>
+            <h1 class="name">Emran Hossen</h1>
+            <p class="description">The Only Person You Are Destined To Become Is The Person You Decide To Be.</p>
+        </div>
+        <div class="links">
+            <a href="https://www.instagram.com/emran_hossen77/" class="link instagram">Instagram</a>
+            <a href="https://www.facebook.com/emranhossen8" class="link facebook">Facebook</a>
+            <a href="https://www.youtube.com/@Pisach_Electro" class="link youtube">YouTube</a>
+            <a href="https://discord.com/invite/mqyrPrZueM 
+            " class="link discord">Discord</a>
+            <a href="https://x.com/Anosstyle84" class="link twitter">X</a>
+        </div>
+    </div>
+    <div class="audio-controls">
+        <button id="audio-toggle">Play Music</button>
+    </div>
+</div>
+
+<div id="player"></div>
+
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '0',
+            width: '0',
+            videoId: '4adZ7AguVcw',
+            playerVars: {
+                'autoplay': 1,
+                'loop': 1,
+                'playlist': '4adZ7AguVcw'
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        document.getElementById("audio-toggle").addEventListener("click", function() {
+            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+                this.textContent = "Play Music";
+            } else {
+                player.playVideo();
+                this.textContent = "Pause Music";
+            }
+        });
+    }
+</script>
+</body>
+</html>

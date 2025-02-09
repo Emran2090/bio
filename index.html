@@ -209,10 +209,10 @@
         document.getElementById("audio-toggle").addEventListener("click", function() {
             if (player.getPlayerState() === YT.PlayerState.PLAYING) {
                 player.pauseVideo();
-                this.textContent = "Play Music";
+                this.textContent = "Play";
             } else {
                 player.playVideo();
-                this.textContent = "Pause Music";
+                this.textContent = "Pause";
             }
         });
     }
